@@ -1,8 +1,8 @@
 body {
-    background: linear-gradient(45deg, #040C1A,#071633,#0B234A); /* 背景色を変更 */
-    background-size: 200% 200%; /* サイズを大きくひきのばす */
+    background: linear-gradient(45deg, #040C1A,#071633,#0B234A);
+    background-size: 200% 200%;
     animation: bggradient 20s ease infinite;
-    color: #2CDDFA; /* 文字色を太字にして変更 */
+    color: #2CDDFA;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
     justify-content: center;
@@ -19,7 +19,7 @@ header {
     padding: 10px;
     text-align: center;
     z-index: 2;
-    color: #040C1A; /* ヘッダーの文字色を変更 */
+    color: #040C1A;
 }
 
 h1 {
@@ -35,14 +35,14 @@ h1 {
     text-align: center;
     width: 100%;
     height: calc(100vh - 50px);
-    padding-top: 50px;
+    padding-top: 60px;
 }
 
 .button {
     border: solid 2px #2CDDFA;
     border-radius: 15px;
     background-color: #2CDDFA;
-    color: #040C1A; /* ボタンの文字色を変更 */
+    color: #040C1A;
     padding: 10px 20px;
     margin: 10px;
     font-size: 1.1em;
@@ -64,13 +64,13 @@ h1 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: #2CDDFA; /* テキスト表示部分の文字色を変更 */
+    color: #2CDDFA;
 }
 
 #textArea {
     width: 600px;
     text-align: center;
-    color: #2CDDFA; /* テキストエリアの文字色を変更 */
+    color: #2CDDFA;
     font-weight: bold;
 }
 
@@ -78,27 +78,6 @@ h1 {
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
-}
-
-#inputBox {
-    border: solid 2px #2CDDFA;
-    border-radius: 15px;
-    padding: 10px 20px;
-    color: #2CDDFA; /* テキスト入力欄の文字色を変更 */
-    background-color: #040C1A; /* テキスト入力欄の背景色を変更 */
-}
-
-/* 「ことわざ」、「挨拶」、「名言」ボタンを同じ順序に並べ替えるための新しいスタイルを追加します */
-#proverbButton, #greetingButton, #quoteButton {
-    order: 1;
-}
-
-/* テキスト表示エリアのスタイル */
-p {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translateY(-50%) translateX(-50%);
 }
 
 @keyframes bggradient{

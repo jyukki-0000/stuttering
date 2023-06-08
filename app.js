@@ -1,33 +1,33 @@
+// シャッフル関数
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+}
+
 // 単語と頻出文の定義
 const lineWords = {
-    あ: ["ありがとう", "アイデンティティ", "いちご", "いんと", "うさぎ", "うみ", "えんぴつ", "えいが", "おおきい", "おんがく"],
-    か: ["かえる", "かき", "くるま", "けいざい", "こい", "キーボード", "クリエイティブ", "ケーキ", "コンピュータ"],
-    さ: ["さかな", "しんぶん", "すいか", "せかい", "そら", "サービス", "システム", "スマートフォン", "セキュリティ", "ソフトウェア"],
-    た: ["たこ", "ちょうちょ", "つき", "てんき", "とり", "タブレット", "チップ", "ツール", "テクノロジー", "トラブルシューティング"],
-    な: ["なまえ", "にわとり", "ぬま", "ねこ", "のり", "ナノテクノロジー", "ニュース", "ヌメリカルアルゴリズム", "ネットワーク", "ノートパソコン"],
-    は: ["はな", "ひつじ", "ふじさん", "へいわ", "ほん", "ハードウェア", "ヒューマンインターフェース", "フレームワーク", "ヘルプデスク", "ホームページ"],
-    ま: ["まる", "みかん", "むし", "め", "もり", "マルチメディア", "ミクロチップ", "ムーアの法則", "メモリ", "モジュール"],
-    や: ["やま", "ゆき", "ようじ", "ヤフー", "ユーチューブ", "ヨーグルト", "ヤクザ", "ユニコード", "ヨークシャー", "ユーザビリティ"],
-    ら: ["らいおん", "りす", "るすばん", "れい", "ろうそく", "ラップトップ", "リンク", "ルーター", "レジストリ", "ロジックボード"],
-    わ: ["わたあめ", "ワープロ", "ウェブ", "ヱヴァンゲリヲン", "ヲタク", "ワイヤレス", "ウィキ", "ヱンタープライズ", "ヲーケストラ", "ワードプロセッサ"]
+    あ: ["アイコン", "イノベーション", "ウェブ", "エンクリプション", "オープンソース", "アジェンダ", "インターネット", "ウェブサイト", "エンタープライズ", "オペレーティングシステム"],
+    か: ["カプセル化", "キャッシュ", "クラウド", "ケーブル", "コード", "カスタマイズ", "キーボード", "クラスタリング", "ケータイ", "コンピュータ"],
+    さ: ["サーバー", "システム", "スクリプト", "セキュリティ", "ソフトウェア", "サービス", "シリコン", "スタック", "セッション", "ソースコード"],
+    た: ["タブレット", "チップ", "ツール", "テクノロジー", "トラフィック", "タスク", "チャネル", "ツールチェーン", "テスト", "トレンド"],
+    な: ["ナビゲーション", "ニーズ", "ヌーク", "ネットワーク", "ノード", "ナレッジ", "ニッチ", "ヌル", "ネゴシエーション", "ノーマライゼーション"],
+    は: ["ハードウェア", "ヒープ", "フック", "ヘッダー", "ホスト", "ハッシュ", "ヒップ", "フレームワーク", "ヘルプデスク", "ホームページ"],
+    ま: ["マクロ", "ミッドルウェア", "ムーブ", "メタデータ", "モデル", "マスター", "ミクロ", "マルチタスク", "メソッド", "モジュール"],
+    や: ["ヤンキース", "ユーザー", "ユーティリティ", "エンドユーザー", "ヨーク"],
+    ら: ["ライブラリ", "リンク", "ループ", "レジストリ", "ローカル", "ランタイム", "リモート", "レンダリング", "レイテンシ", "ロジック"],
+    わ: ["ワンクリック", "ワイヤフレーム", "ワークフロー", "ワールドワイドウェブ", "ワイヤレス"],
 };
 
 let currentWords = [];
 let currentIndex = 0;
-
-const sentences = [
-    "ああ言えばこう言う (ああいえばこういう)",
-    "秋の日は釣瓶落とし (あきのひはつるべおとし)",
-    "麻の中の蓬 (あさのなかのよもぎ)",
-    "頭の上の蝿も追えぬ（あたまのうえのはえもおえぬ)",
-    "羹に懲りて膾を吹く（あつものにこりてなますをふく）"
-
-    // 他の文章も追加可能
-];
+let displayedWords = [];
 
 function displayText() {
     if (currentIndex < currentWords.length) {
         document.getElementById("textArea").innerText = currentWords[currentIndex];
+        displayedWords.push(currentWords[currentIndex]);
         currentIndex++;
     } else if (currentWords.length > 0) {
         document.getElementById("textArea").innerText = "全ての単語を読み終えました。";
@@ -40,29 +40,19 @@ document.getElementById("nextButton").addEventListener("click", function() {
 });
 
 document.getElementById("backButton").addEventListener("click", function() {
-    if (currentIndex > 1) {
-        currentIndex--;
-        document.getElementById("textArea").innerText = currentWords[currentIndex - 1];
+    if (displayedWords.length > 1) {
+        displayedWords.pop(); // 最後の要素を取り出し、削除
+        document.getElementById("textArea").innerText = displayedWords[displayedWords.length - 1];
     }
 });
 
 document.querySelectorAll('.button[data-line]').forEach(button => {
     button.addEventListener('click', function() {
         let line = this.getAttribute('data-line');
-        currentWords = lineWords[line];
+        currentWords = lineWords[line].slice(); // currentWordsに新しい配列を割り当てる
+        shuffleArray(currentWords); // currentWordsをシャッフル
         currentIndex = 0;
+        displayedWords = [];
         displayText();
     });
-});
-
-document.getElementById("greetingButton").addEventListener("click", function() {
-    currentWords = sentences;  // sentences が挨拶文を保持する配列と仮定
-    currentIndex = 0;
-    displayText();
-});
-
-document.getElementById("quoteButton").addEventListener("click", function() {
-    currentWords = sentences;  // sentences が名言を保持する配列と仮定
-    currentIndex = 0;
-    displayText();
 });

@@ -1,0 +1,114 @@
+body {
+    background: linear-gradient(45deg, #040C1A,#071633,#0B234A); /* 背景色を変更 */
+    background-size: 200% 200%; /* サイズを大きくひきのばす */
+    animation: bggradient 20s ease infinite;
+    color: #2CDDFA; /* 文字色を太字にして変更 */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+header {
+    background-color: #2CDDFA;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    z-index: 2;
+    color: #040C1A; /* ヘッダーの文字色を変更 */
+}
+
+h1 {
+    color: #000000;
+}
+
+#content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    text-align: center;
+    width: 100%;
+    height: calc(100vh - 50px);
+    padding-top: 50px;
+}
+
+.button {
+    border: solid 2px #2CDDFA;
+    border-radius: 15px;
+    background-color: #2CDDFA;
+    color: #040C1A; /* ボタンの文字色を変更 */
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 1.1em;
+    font-weight: bold;
+    transition: all 0.2s;
+}
+
+.button:active {
+    background-color: #1895A9;
+    transform: scale(0.95);
+}
+
+#textDisplay {
+    border: solid 2px #2CDDFA;
+    padding: 50px;
+    font-size: 1.2em;
+    min-height: 100px;
+    width: 800px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #2CDDFA; /* テキスト表示部分の文字色を変更 */
+}
+
+#textArea {
+    width: 600px;
+    text-align: center;
+    color: #2CDDFA; /* テキストエリアの文字色を変更 */
+    font-weight: bold;
+}
+
+#lineButtons {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+#inputBox {
+    border: solid 2px #2CDDFA;
+    border-radius: 15px;
+    padding: 10px 20px;
+    color: #2CDDFA; /* テキスト入力欄の文字色を変更 */
+    background-color: #040C1A; /* テキスト入力欄の背景色を変更 */
+}
+
+/* 「ことわざ」、「挨拶」、「名言」ボタンを同じ順序に並べ替えるための新しいスタイルを追加します */
+#proverbButton, #greetingButton, #quoteButton {
+    order: 1;
+}
+
+/* テキスト表示エリアのスタイル */
+p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+}
+
+@keyframes bggradient{
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

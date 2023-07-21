@@ -1,5 +1,5 @@
 body {
-    background: linear-gradient(45deg, #040C1A,#071633,#0B234A);
+    background: linear-gradient(45deg, #040C1A,#071633,#114899);
     background-size: 200% 200%;
     animation: bggradient 20s ease infinite;
     color: #2CDDFA;
@@ -90,4 +90,32 @@ h1 {
   100% {
     background-position: 0% 50%;
   }
+}
+
+progress[value] {
+    /* デフォルトの見た目をリセット */
+    -webkit-appearance: none;
+    appearance: none;
+  
+    /* サイズを設定 */
+    width: 40%;
+    height: 20px;
+  
+    /* 色を設定 */
+    color: #2CDDFA; /* 進捗バーの色 */
+    background-color: #040C1A; /* 進捗バーの背景色 */
+}
+
+/* ChromeとSafariに必要な設定 */
+progress[value]::-webkit-progress-bar {
+    background-color: #040C1A; /* 進捗バー全体の背景色 */
+}
+
+progress[value]::-webkit-progress-value {
+    background-color: #2CDDFA; /* 実際の進捗色 */
+}
+
+/* Firefoxに必要な設定 */
+progress[value]::-moz-progress-bar {
+    background-color: #2CDDFA; /* 実際の進捗色 */
 }
